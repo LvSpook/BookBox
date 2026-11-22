@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bookbox — Bookmark Toolbox</title>
+  <script src="theme-boot.js"></script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="preview-body">
+  <div class="preview-page">
+    <header class="preview-hero">
+      <div class="preview-hero-top">
+        <span class="preview-logo" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 7h16v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/>
+            <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+            <path d="M9 12h6"/>
+            <path d="M9 16h4"/>
+          </svg>
+        </span>
+        <div>
+          <h1 class="preview-title">Bookbox</h1>
+          <p class="preview-tagline">Your bookmarks, sorted.</p>
+        </div>
+      </div>
+      <p class="preview-sub">
+        A bookmark toolbox that opens on your library. Search everything you've saved — titles, page text,
+        notes and tags — then sort, tag, dedupe, or clean up from the same place. All local and free.
+      </p>
+      <div class="preview-actions">
+        <button type="button" class="btn-secondary" id="reset-demo-btn">Reset demo bookmarks</button>
+        <span class="preview-note">23 demo bookmarks, including deliberate duplicates, dead links, and a moved page.</span>
+      </div>
+    </header>
+
+    <div class="preview-frame" id="preview-frame"></div>
+
+    <section class="preview-info">
+      <div class="install-card">
+        <h2>Install in Chrome, Edge, or Brave</h2>
+        <ol>
+          <li>Download this project's ZIP and unzip it on your computer.</li>
+          <li>Open <code>chrome://extensions</code> (or <code>edge://extensions</code>).</li>
+          <li>Turn on <strong>Developer mode</strong> in the top-right corner.</li>
+          <li>Click <strong>Load unpacked</strong> and select the <code>public</code> folder inside the unzipped folder.</li>
+        </ol>
+        <p class="note">
+          <strong>Free AI sorting is optional.</strong> Smart Local works with no account. To use AI sorting,
+          paste a free key from Google AI Studio, Groq, or OpenRouter in Settings — it stays on your machine.
+        </p>
+        <p class="note">
+          <strong>Daily shortcuts:</strong> right-click any page → <em>Save this page to Bookbox</em>,
+          or type <code>bb css grid</code> in the address bar to search your library.
+        </p>
+      </div>
+
+      <div class="install-card">
+        <h2>What's inside</h2>
+        <ul class="feature-list">
+          <li><strong>Browse first</strong> — search, filters, and your library as the home screen.</li>
+          <li><strong>Rules</strong> — always file a site in the same folder, no AI needed.</li>
+          <li><strong>Confidence</strong> — every suggestion shows why it was chosen, and how sure it is.</li>
+          <li><strong>Merge duplicates</strong> — keep one copy, carry over tags and notes.</li>
+          <li><strong>30-day trash</strong> — nothing is deleted instantly; restore in one click.</li>
+          <li><strong>Undo history</strong> — the last 10 actions, replayable.</li>
+          <li><strong>Bot-wall aware link checks</strong> — 403/429 sites are kept, not deleted.</li>
+          <li><strong>Smart collections</strong> — live saved searches that update themselves.</li>
+          <li><strong>Command palette</strong> — Ctrl/Cmd+K to jump anywhere.</li>
+          <li><strong>Import &amp; export</strong> — HTML, JSON, Markdown, CSV.</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <script type="module">
+    import { renderShell } from './ui.js';
+    renderShell(document.getElementById('preview-frame'));
+    await import('./app.js');
+  </script>
+</body>
+</html>
