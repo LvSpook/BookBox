@@ -97,7 +97,7 @@ sorts them, tags them, removes duplicates and dead links, and helps find them ag
 ## Privacy policy
 
 Host `docs/privacy.html`, which publishes to
-<https://lvspook.github.io/bookbox/privacy.html>, and paste that address in the
+<https://lvspook.github.io/BookBox/privacy.html>, and paste that address in the
 listing's privacy policy field. The same policy is readable inside the extension
 under Settings → Privacy.
 
