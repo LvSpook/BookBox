@@ -129,80 +129,79 @@
         <span class="rule"></span>
       </div>
 
-      <div class="mock-wrap">
-        <div class="mock" aria-hidden="true">
-          <div class="mock-bar">
-            <img src="assets/logo.svg" alt="">
-            <span>BookBox</span>
-            <span class="kbd">Ctrl K</span>
-          </div>
-          <div class="mock-search">
-            <span>tag:frontend site:css-tricks</span>
-            <span class="cursor"></span>
-          </div>
-          <div class="mock-tabs">
-            <span class="on">Library</span><span>Organise</span><span>Health</span><span>Tags</span>
-          </div>
-          <div class="mock-list">
-            <div class="mock-row">
-              <span class="ico"></span>
-              <div>
-                <div class="t">A Complete Guide to Grid</div>
-                <div class="u">css-tricks.com/complete-guide-grid</div>
-                <span class="tag">frontend/css</span>
-              </div>
-            </div>
-            <div class="mock-row">
-              <span class="ico"></span>
-              <div>
-                <div class="t">Container queries, explained</div>
-                <div class="u">developer.mozilla.org/…/container</div>
-                <span class="tag">frontend/css</span>
-              </div>
-            </div>
-            <div class="mock-row">
-              <span class="ico"></span>
-              <div>
-                <div class="t">Designing with colour tokens</div>
-                <div class="u">smashingmagazine.com/tokens</div>
-                <span class="tag">frontend/design</span>
-              </div>
-            </div>
-          </div>
-          <div class="mock-foot">
-            <span class="primary">Sort with proof</span>
-            <span>Duplicates</span>
-            <span>Trash</span>
+      <p class="sec-note">
+        This is the real thing, running in the page: search, operators, sorting,
+        duplicate detection and 30-day trash, all on a sample library. Nothing is
+        sent anywhere and nothing here touches your own bookmarks.
+      </p>
+
+      <div class="demo" id="demo">
+        <div class="demo-head">
+          <span class="demo-eyebrow mono">Live demo</span>
+          <div class="demo-steps" role="group" aria-label="Try these">
+            <button type="button" class="demo-chip" data-try="grid">Try <code>tag:frontend</code></button>
+            <button type="button" class="demo-chip" data-try="dead">Find dead links</button>
+            <button type="button" class="demo-chip" data-try="reset">Reset library</button>
           </div>
         </div>
 
-        <div class="grid2" style="grid-template-columns:1fr">
-          <div class="card">
-            <h3><span class="bar"></span> Browse first</h3>
-            <ul>
-              <li><span class="n">01</span><span>Search titles, addresses, tags, notes <strong>and page text</strong> in one box.</span></li>
-              <li><span class="n">02</span><span>Fuzzy matching, filters and operators like <code>tag:</code>, <code>site:</code>, <code>is:unread</code>.</span></li>
-              <li><span class="n">03</span><span>Saved collections and a command palette at <code>Ctrl</code>+<code>K</code>.</span></li>
-            </ul>
+        <div class="mock-wrap">
+          <div class="mock">
+            <div class="mock-bar">
+              <img src="assets/logo.svg" alt="">
+              <span>BookBox</span>
+              <span class="kbd">Ctrl K</span>
+            </div>
+
+            <div class="mock-tabs" role="tablist">
+              <button type="button" class="demo-tab on" role="tab" aria-selected="true" data-panel="library">Library</button>
+              <button type="button" class="demo-tab" role="tab" aria-selected="false" data-panel="health">Health</button>
+              <button type="button" class="demo-tab" role="tab" aria-selected="false" data-panel="trash">Trash</button>
+            </div>
+
+            <div class="demo-panel" data-panel="library">
+              <label class="mock-search" for="demo-q">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg>
+                <input id="demo-q" type="search" autocomplete="off" spellcheck="false" placeholder="Search titles, text, tags - or try tag:frontend">
+              </label>
+              <div class="demo-chips" id="demo-active-filters"></div>
+              <div class="mock-list" id="demo-results" role="list" aria-live="polite"></div>
+              <div class="demo-status" id="demo-status"></div>
+            </div>
+
+            <div class="demo-panel" data-panel="health" hidden>
+              <div class="mock-list" id="demo-health" role="list" aria-live="polite"></div>
+            </div>
+
+            <div class="demo-panel" data-panel="trash" hidden>
+              <div class="mock-list" id="demo-trash" role="list" aria-live="polite"></div>
+            </div>
+
+            <div class="mock-foot">
+              <button type="button" class="demo-action primary" data-action="sort">Sort with proof</button>
+              <button type="button" class="demo-action" data-action="dupes">Duplicates</button>
+              <button type="button" class="demo-action" data-action="trash">Trash</button>
+            </div>
           </div>
-          <div class="card">
-            <h3><span class="bar"></span> Clean up safely</h3>
-            <ul>
-              <li><span class="n">01</span><span>Duplicates, dead links, redirects and stale saves each get their own section.</span></li>
-              <li><span class="n">02</span><span>Everything goes to a <strong>30-day trash</strong> with an undo toast.</span></li>
-              <li><span class="n">03</span><span>A backup is saved before every change.</span></li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3><span class="bar"></span> Tag and annotate</h3>
-            <ul>
-              <li><span class="n">01</span><span>Nested tags like <code>frontend/css</code>, plus notes and read-later marks.</span></li>
-              <li><span class="n">02</span><span>A reader view with a short local summary.</span></li>
-              <li><span class="n">03</span><span>Import and export as HTML, JSON, Markdown or CSV.</span></li>
-            </ul>
+
+          <div class="demo-side" id="demo-side" aria-live="polite">
+            <div class="card demo-empty">
+              <h3><span class="bar"></span> Nothing selected yet</h3>
+              <ul>
+                <li><span class="n">01</span><span>Search with plain text, or an operator like <code>tag:frontend</code> or <code>site:github.com</code>.</span></li>
+                <li><span class="n">02</span><span>Press <strong>Sort with proof</strong> to see a folder plan you can untick.</span></li>
+                <li><span class="n">03</span><span>Tap a bookmark to mark it read, tag it, or send it to trash.</span></li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
+
+      <p class="demo-note">
+        Like what you see?
+        <a href="#install">Install the real extension</a> - it does all of this on
+        your actual bookmarks, with no account.
+      </p>
     </div>
   </section>
 
@@ -307,7 +306,7 @@
 
       <p class="sec-note" style="margin-top:18px">
         The full policy is in
-        <a href="https://github.com/LvSpook/bookbox/blob/main/privacy.html">privacy.html</a>.
+        <a href="privacy.html">privacy.html</a>.
       </p>
     </div>
   </section>
@@ -361,10 +360,10 @@
       </div>
 
       <div class="grid2">
-        <a class="card" href="https://github.com/LvSpook/bookbox" style="display:block;padding:0;overflow:hidden">
+        <a class="card" href="https://lvspook.github.io/bookbox/" style="display:block;padding:0;overflow:hidden">
           <img src="assets/card-bookbox.svg" alt="BookBox - local-first bookmark toolbox" style="display:block;width:100%">
         </a>
-        <a class="card" href="https://github.com/LvSpook?tab=repositories" style="display:block;padding:0;overflow:hidden">
+        <a class="card" href="https://lvspook.github.io/LvSpook/" style="display:block;padding:0;overflow:hidden">
           <img src="assets/card-more.svg" alt="More tools from LvSpook" style="display:block;width:100%">
         </a>
       </div>
@@ -390,10 +389,10 @@
   <div class="wrap foot">
     <span class="mono">BOOKBOX - CHROME / EDGE / BRAVE - LOCAL-FIRST</span>
     <nav class="mono">
+      <a href="https://lvspook.github.io/LvSpook/">More tools</a>
       <a href="https://github.com/LvSpook/bookbox">GitHub</a>
       <a href="https://github.com/LvSpook/bookbox/issues">Issues</a>
-      <a href="https://github.com/LvSpook/bookbox/blob/main/privacy.html">Privacy</a>
-      <a href="https://lvspook.github.io/LvSpook/">LvSpook</a>
+      <a href="privacy.html">Privacy</a>
     </nav>
   </div>
 </footer>
@@ -424,6 +423,8 @@
     });
   })();
 </script>
+
+<script src="demo.js"></script>
 
 </body>
 </html>

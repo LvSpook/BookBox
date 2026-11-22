@@ -12,12 +12,12 @@
 [![Version](https://img.shields.io/badge/version-2.3.0-6ea0ff)](public/manifest.json)
 [![Status](https://img.shields.io/badge/status-not%20on%20the%20store-e0a860)](#-install-unpacked)
 [![Platform](https://img.shields.io/badge/platform-chrome%20%7C%20edge%20%7C%20brave-6ea0ff)](https://lvspook.github.io/bookbox/)
-[![Local-first](https://img.shields.io/badge/data-stays%20in%20your%20browser-59d99a)](privacy.html)
+[![Local-first](https://img.shields.io/badge/data-stays%20in%20your%20browser-59d99a)](https://lvspook.github.io/bookbox/privacy.html)
 
 **A bookmark toolbox that opens on your library, not an empty search box.**
 Search inside saved pages, sort with proof, and clean up knowing every change is reversible.
 
-[Install](#-install-unpacked) · [Features](#-what-it-does) · [Sorting](#-sorting-with-proof) · [Docs site](https://lvspook.github.io/bookbox/) · [Privacy](privacy.html) · [AI disclosure](#-ai-assistance-disclosure)
+[Install](#-install-unpacked) · [Features](#-what-it-does) · [Sorting](#-sorting-with-proof) · [Docs site](https://lvspook.github.io/bookbox/) · [Privacy](https://lvspook.github.io/bookbox/privacy.html) · [AI disclosure](#-ai-assistance-disclosure)
 
 </div>
 
@@ -160,7 +160,7 @@ docs/                 GitHub Pages site
 Everything stays in your browser. Cross-device sync (optional) carries only
 settings and tag names. Your API key never leaves the device. Adding a key sends
 the bookmarks you sort or ask about to that provider; nothing else leaves the
-browser. See [`privacy.html`](privacy.html) for the full policy.
+browser. See [`privacy.html`](https://lvspook.github.io/bookbox/privacy.html) for the full policy.
 
 ## 🧪 Tests
 
