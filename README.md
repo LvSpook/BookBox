@@ -39,7 +39,7 @@ source. You only need to do this once per browser profile.
 ### Option A — clone with Git (needed for updates)
 
 ```bash
-git clone https://github.com/<your-username>/bookbox.git
+git clone https://github.com/LvSpook/bookbox.git
 ```
 
 Then:
