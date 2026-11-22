@@ -1,6 +1,6 @@
-# Bookbox — store submission notes
+# BookBox — store submission notes
 
-Materials for listing Bookbox on the Chrome Web Store, Microsoft Edge Add-ons,
+Materials for listing BookBox on the Chrome Web Store, Microsoft Edge Add-ons,
 and Firefox's AMO (Firefox is a future port; see the end).
 
 ## Short description (132 characters max)
@@ -9,7 +9,7 @@ Your bookmarks, sorted. Search inside pages, tag, dedupe, and clean up — all l
 
 ## Full description
 
-Bookbox is a bookmark toolbox for people whose saved links have piled up.
+BookBox is a bookmark toolbox for people whose saved links have piled up.
 
 It opens on your library instead of an empty search box. Type anything and it
 looks in titles, addresses, tags, notes, and the text of saved pages, so a search
@@ -54,14 +54,14 @@ no ads, no account.
 
 ## Permission justifications
 
-| Permission | Why Bookbox needs it |
+| Permission | Why BookBox needs it |
 | --- | --- |
 | `bookmarks` | Read, move, tag, and clean up the user's bookmarks. This is the core function. |
 | `storage` | Save tags, notes, rules, settings, backups, and the trash record. |
 | `unlimitedStorage` | Hold the page-text search index, which can exceed the default 5 MB. |
 | `history` | Show which saved pages the user actually visits, used to flag stale saves. |
 | `tabs` | Open a bookmark and save the current page when asked. |
-| `contextMenus` | Add the right-click "Save this page to Bookbox" action. |
+| `contextMenus` | Add the right-click "Save this page to BookBox" action. |
 | `alarms` | Run the optional scheduled dead-link check. |
 | Host permission (all sites) | Fetch page text the user asks to index, test whether saved links still resolve, and call the AI provider the user configured with their own key. |
 
@@ -91,7 +91,7 @@ account.
 
 ## Single purpose statement
 
-Bookbox organises bookmarks: it reads the user's bookmarks and, when asked,
+BookBox organises bookmarks: it reads the user's bookmarks and, when asked,
 sorts them, tags them, removes duplicates and dead links, and helps find them again.
 
 ## Privacy policy
@@ -119,4 +119,4 @@ under Settings → Privacy.
 
 A Firefox build needs `browser_specific_settings`, a settings page instead of
 `options_ui` where required, and a check that `chrome.*` calls map to `browser.*`
-promises. Bookbox is not ready for AMO submission yet.
+promises. BookBox is not ready for AMO submission yet.

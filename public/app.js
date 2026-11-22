@@ -975,11 +975,11 @@ async function undoLast() {
   if (!latest || state.busy) return;
   const ok = await askConfirm({
     title: 'Undo last change?',
-    body: `<p>This re-adds the bookmarks from <strong>${escapeHtml(latest.label)}</strong> into a new “Bookbox Restored” folder. Nothing current is deleted.</p>`,
+    body: `<p>This re-adds the bookmarks from <strong>${escapeHtml(latest.label)}</strong> into a new “BookBox Restored” folder. Nothing current is deleted.</p>`,
     okLabel: 'Undo'
   });
   if (!ok) return;
-  await recreateFromItems(latest.items, `Bookbox Restored (${new Date().toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })})`);
+  await recreateFromItems(latest.items, `BookBox Restored (${new Date().toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })})`);
   await scanBookmarks();
   showStatus('Change undone via a restored folder.', 'ok');
 }
@@ -1099,7 +1099,7 @@ async function trashRestoreAll() {
   const items = [...state.trash];
   state.trash = [];
   await persistTrash();
-  await recreateFromItems(items, `Bookbox Restored (${new Date().toLocaleDateString()})`);
+  await recreateFromItems(items, `BookBox Restored (${new Date().toLocaleDateString()})`);
   await scanBookmarks();
   showStatus(`Restored ${items.length} bookmark${items.length === 1 ? '' : 's'} from trash.`, 'ok');
 }
@@ -1181,7 +1181,7 @@ async function restoreHistory(index) {
   if (!ok) return;
   state.busy = true;
   try {
-    await recreateFromItems(snapshot.items, `Bookbox Restored (${new Date().toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })})`);
+    await recreateFromItems(snapshot.items, `BookBox Restored (${new Date().toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })})`);
     await scanBookmarks();
     showStatus('Snapshot restored into a new folder.', 'ok');
   } catch (err) {
@@ -3450,7 +3450,7 @@ function renderTrash() {
       const index = Number(btn.dataset.trashRestore);
       const [item] = state.trash.splice(index, 1);
       await persistTrash();
-      await recreateFromItems([item], `Bookbox Restored (${new Date().toLocaleDateString()})`);
+      await recreateFromItems([item], `BookBox Restored (${new Date().toLocaleDateString()})`);
       await scanBookmarks();
       showStatus('Restored from trash.', 'ok');
     });
@@ -3606,7 +3606,7 @@ function renderRules() {
   if (!els.rulesList) return;
 
   if (state.rules.length === 0) {
-    els.rulesList.innerHTML = '<p class="empty-note">No rules yet. Add one above and Bookbox will always file those bookmarks the same way.</p>';
+    els.rulesList.innerHTML = '<p class="empty-note">No rules yet. Add one above and BookBox will always file those bookmarks the same way.</p>';
     if (els.rulesRunBtn) els.rulesRunBtn.hidden = true;
     return;
   }
@@ -5969,7 +5969,7 @@ async function mergeDuplicates() {
 
   const ok = await askConfirm({
     title: `Merge ${ids.length} duplicate${ids.length === 1 ? '' : 's'}?`,
-    body: '<p>Bookbox keeps one copy per page and folds the extra tags, notes, and read-later status into it. The removed copies go to Trash for 30 days.</p>',
+    body: '<p>BookBox keeps one copy per page and folds the extra tags, notes, and read-later status into it. The removed copies go to Trash for 30 days.</p>',
     okLabel: 'Merge'
   });
   if (!ok) return;
@@ -6577,7 +6577,7 @@ async function applyPlan() {
       const parentRootId = await getDefaultParentId();
       const rootFolder = await chrome.bookmarks.create({
         parentId: parentRootId || '1',
-        title: `Bookbox Organized (${new Date().toLocaleDateString()})`
+        title: `BookBox Organized (${new Date().toLocaleDateString()})`
       });
 
       for (const parent of state.plan.tree) {
@@ -6656,7 +6656,7 @@ function download(filename, text, mime = 'application/json') {
 function exportJson() {
   const payload = JSON.stringify(
     {
-      app: 'Bookbox',
+      app: 'BookBox',
       exportedAt: new Date().toISOString(),
       count: state.bookmarks.length,
       bookmarks: state.bookmarks.map(({ content, indexText, ...rest }) => ({
@@ -6767,7 +6767,7 @@ async function confirmImport() {
 
   try {
     await pushSnapshot('Before import');
-    await recreateFromItems(fresh, `Bookbox Import (${new Date().toLocaleDateString()})`);
+    await recreateFromItems(fresh, `BookBox Import (${new Date().toLocaleDateString()})`);
     els.importProgressBar.style.width = '100%';
     els.importStatus.textContent = `Imported ${fresh.length} bookmark${plural(fresh.length, '')}.`;
     pendingImport = null;
@@ -7428,13 +7428,13 @@ async function drainPending() {
         const suggestion = shouldAsk ? await suggestFilingFor(item) : null;
         filed.push({ ...item, folderName: (suggestion && suggestion.folder) || 'Unsorted', tags: suggestion?.tag ? [suggestion.tag] : [] });
       }
-      await recreateFromItems(filed, `Bookbox Saved (${new Date().toLocaleDateString()})`);
+      await recreateFromItems(filed, `BookBox Saved (${new Date().toLocaleDateString()})`);
       await scanBookmarks();
       const tagged = filed.filter((f) => f.tags && f.tags.length).length;
       showStatus(
         tagged
           ? `Saved ${fresh.length} bookmark${fresh.length === 1 ? '' : 's'}, filed with a suggested tag and folder.`
-          : `Saved ${fresh.length} bookmark${fresh.length === 1 ? '' : 's'} to Bookbox.`,
+          : `Saved ${fresh.length} bookmark${fresh.length === 1 ? '' : 's'} to BookBox.`,
         'ok'
       );
     }

@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BookBox - local-first bookmark toolbox for Chrome, Edge and Brave</title>
+<meta name="description" content="BookBox opens on your library instead of an empty search box. Search saved page text, sort bookmarks with proof, and clean up duplicates under 30-day trash - all local, no account.">
+<meta property="og:title" content="BookBox">
+<meta property="og:description" content="Your bookmarks, sorted - local-first, no account.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/banner-dark.svg">
+<meta property="og:url" content="https://lvspook.github.io/bookbox/">
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem("bookbox-docs-theme");
+      if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top">
+      <img src="assets/logo.svg" alt="" width="28" height="28">
+      <span>Book<b>Box</b></span>
+    </a>
+    <div class="nav-links mono">
+      <a href="#install">Install</a>
+      <a href="#features">Features</a>
+      <a href="#sorting">Sorting</a>
+      <a href="#ai">AI</a>
+      <a href="#privacy">Privacy</a>
+      <a href="#files">Files</a>
+    </div>
+    <button class="theme-toggle mono" id="theme-toggle" type="button" aria-label="Toggle colour scheme" title="Toggle colour scheme">Light</button>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <img class="hero-banner" id="hero-banner" src="assets/banner-dark.svg" alt="BookBox - local-first bookmark toolbox for Chrome, Edge and Brave">
+
+  <div class="wrap hero-body">
+    <h1>A toolbox for the bookmarks <em>you already saved</em></h1>
+    <p>
+      BookBox opens on your library instead of an empty search box. Search titles,
+      addresses, tags, notes and real page text in one place, then sort, tag,
+      dedupe or clean up - seeing every change before it happens and nothing
+      leaving your machine.
+    </p>
+
+    <div class="pill-row">
+      <span class="pill">Chrome</span>
+      <span class="pill">Edge</span>
+      <span class="pill">Brave</span>
+      <span class="pill dim">Manifest V3</span>
+      <span class="pill warn">Not on the store yet</span>
+    </div>
+
+    <div class="cta-row">
+      <a class="btn solid" href="#install">Install unpacked</a>
+      <a class="btn" href="https://github.com/LvSpook/bookbox">GitHub</a>
+      <a class="btn" href="https://github.com/LvSpook/bookbox#readme">README</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section id="install">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="idx mono">01</span>
+        <h2>Install</h2>
+        <span class="rule"></span>
+      </div>
+
+      <p class="sec-note">
+        BookBox isn't on the Chrome Web Store yet, so you load it from the source.
+        This takes about a minute and only needs doing once per browser profile.
+      </p>
+
+      <div class="grid2">
+        <div class="card">
+          <h3><span class="bar"></span> Clone (gets updates)</h3>
+          <ul>
+            <li><span class="n">01</span><span>Clone the repo somewhere permanent.</span></li>
+            <li><span class="n">02</span><span>Open <code>chrome://extensions</code>.</span></li>
+            <li><span class="n">03</span><span>Turn on <strong>Developer mode</strong>.</span></li>
+            <li><span class="n">04</span><span>Click <strong>Load unpacked</strong> and pick the <strong><code>public</code></strong> folder.</span></li>
+          </ul>
+          <pre style="margin-top:14px"><code>git clone https://github.com/LvSpook/bookbox.git</code></pre>
+        </div>
+
+        <div class="card">
+          <h3><span class="bar"></span> Download a ZIP (no Git)</h3>
+          <ul>
+            <li><span class="n">01</span><span>On the repo page, click <strong>Code &rarr; Download ZIP</strong>.</span></li>
+            <li><span class="n">02</span><span>Unzip it somewhere permanent.</span></li>
+            <li><span class="n">03</span><span>Open your browser's extensions page and enable <strong>Developer mode</strong>.</span></li>
+            <li><span class="n">04</span><span><strong>Load unpacked</strong> &rarr; select the <strong><code>public</code></strong> folder.</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="notice" style="margin-top:16px">
+        <span class="ico">//</span>
+        <div>
+          <strong>Load <code>public</code>, not the repo root.</strong>
+          <p>
+            The manifest lives inside <code>public/</code>, so the repo layout mirrors
+            the extension exactly. Pin the icon from the puzzle-piece menu; your
+            library fills in immediately because bookmarks are read from the browser.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="idx mono">02</span>
+        <h2>What it does</h2>
+        <span class="rule"></span>
+      </div>
+
+      <div class="mock-wrap">
+        <div class="mock" aria-hidden="true">
+          <div class="mock-bar">
+            <img src="assets/logo.svg" alt="">
+            <span>BookBox</span>
+            <span class="kbd">Ctrl K</span>
+          </div>
+          <div class="mock-search">
+            <span>tag:frontend site:css-tricks</span>
+            <span class="cursor"></span>
+          </div>
+          <div class="mock-tabs">
+            <span class="on">Library</span><span>Organise</span><span>Health</span><span>Tags</span>
+          </div>
+          <div class="mock-list">
+            <div class="mock-row">
+              <span class="ico"></span>
+              <div>
+                <div class="t">A Complete Guide to Grid</div>
+                <div class="u">css-tricks.com/complete-guide-grid</div>
+                <span class="tag">frontend/css</span>
+              </div>
+            </div>
+            <div class="mock-row">
+              <span class="ico"></span>
+              <div>
+                <div class="t">Container queries, explained</div>
+                <div class="u">developer.mozilla.org/…/container</div>
+                <span class="tag">frontend/css</span>
+              </div>
+            </div>
+            <div class="mock-row">
+              <span class="ico"></span>
+              <div>
+                <div class="t">Designing with colour tokens</div>
+                <div class="u">smashingmagazine.com/tokens</div>
+                <span class="tag">frontend/design</span>
+              </div>
+            </div>
+          </div>
+          <div class="mock-foot">
+            <span class="primary">Sort with proof</span>
+            <span>Duplicates</span>
+            <span>Trash</span>
+          </div>
+        </div>
+
+        <div class="grid2" style="grid-template-columns:1fr">
+          <div class="card">
+            <h3><span class="bar"></span> Browse first</h3>
+            <ul>
+              <li><span class="n">01</span><span>Search titles, addresses, tags, notes <strong>and page text</strong> in one box.</span></li>
+              <li><span class="n">02</span><span>Fuzzy matching, filters and operators like <code>tag:</code>, <code>site:</code>, <code>is:unread</code>.</span></li>
+              <li><span class="n">03</span><span>Saved collections and a command palette at <code>Ctrl</code>+<code>K</code>.</span></li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3><span class="bar"></span> Clean up safely</h3>
+            <ul>
+              <li><span class="n">01</span><span>Duplicates, dead links, redirects and stale saves each get their own section.</span></li>
+              <li><span class="n">02</span><span>Everything goes to a <strong>30-day trash</strong> with an undo toast.</span></li>
+              <li><span class="n">03</span><span>A backup is saved before every change.</span></li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3><span class="bar"></span> Tag and annotate</h3>
+            <ul>
+              <li><span class="n">01</span><span>Nested tags like <code>frontend/css</code>, plus notes and read-later marks.</span></li>
+              <li><span class="n">02</span><span>A reader view with a short local summary.</span></li>
+              <li><span class="n">03</span><span>Import and export as HTML, JSON, Markdown or CSV.</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sorting">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="idx mono">03</span>
+        <h2>Sorting with proof</h2>
+        <span class="rule"></span>
+      </div>
+
+      <p class="sec-note">
+        Sorting is the part most bookmark tools get wrong. BookBox proposes a plan
+        and shows every move before it touches anything, so you can untick the ones
+        you disagree with.
+      </p>
+
+      <div class="grid2">
+        <div class="card">
+          <h3><span class="bar"></span> Smart Local</h3>
+          <ul>
+            <li><span class="n">01</span><span>Reads real page content and proposes a two-level folder plan.</span></li>
+            <li><span class="n">02</span><span>Works with no account, no key and no network.</span></li>
+            <li><span class="n">03</span><span>Every suggestion carries a confidence and a reason.</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3><span class="bar"></span> Rules always win</h3>
+          <ul>
+            <li><span class="n">01</span><span>Pin a site to a folder once and it stays there.</span></li>
+            <li><span class="n">02</span><span>Rules beat both local and AI sorting, every time.</span></li>
+            <li><span class="n">03</span><span>Turn a plain sentence into a rule with AI, or write it by hand.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="ai">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="idx mono">04</span>
+        <h2>Optional AI</h2>
+        <span class="rule"></span>
+      </div>
+
+      <p class="sec-note">
+        AI is opt-in and stays hidden until you paste a free key. With no key, local
+        sorting, local summaries and local answers all still work.
+      </p>
+
+      <div class="grid2">
+        <div class="card">
+          <h3><span class="bar"></span> Ten extras, per feature</h3>
+          <ul>
+            <li><span class="n">01</span><span>AI sorting, answers with quoted passages and follow-ups.</span></li>
+            <li><span class="n">02</span><span>Per-page summaries and tag suggestions from your own vocabulary.</span></li>
+            <li><span class="n">03</span><span>Duplicate-tag cleanup with a diff, and a near-duplicate tie-breaker.</span></li>
+            <li><span class="n">04</span><span>Folder renaming, a plain-language reason for stale saves.</span></li>
+            <li><span class="n">05</span><span>Tag-and-file on save, and turning a sentence into a rule.</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3><span class="bar"></span> Providers</h3>
+          <ul>
+            <li><span class="n">01</span><span>Google Gemini, Groq or OpenRouter - all have free tiers.</span></li>
+            <li><span class="n">02</span><span>Your key stays on your machine and is never synced.</span></li>
+            <li><span class="n">03</span><span>Meaning search needs embeddings, so it appears only on Gemini.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="privacy">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="idx mono">05</span>
+        <h2>Privacy</h2>
+        <span class="rule"></span>
+      </div>
+
+      <div class="grid2">
+        <div class="card">
+          <h3><span class="bar"></span> Never</h3>
+          <ul>
+            <li><span class="n">01</span><span>No analytics or telemetry.</span></li>
+            <li><span class="n">02</span><span>No ads inside the extension.</span></li>
+            <li><span class="n">03</span><span>No account, no server, no selling or sharing data.</span></li>
+            <li><span class="n">04</span><span>No reading pages you haven't chosen to save or index.</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3><span class="bar"></span> Leaves your browser only when</h3>
+          <ul>
+            <li><span class="n">01</span><span>You add an AI key and ask it to sort, summarise or answer.</span></li>
+            <li><span class="n">02</span><span>A dead-link check requests addresses you already saved.</span></li>
+            <li><span class="n">03</span><span>You turn on cross-device sync - settings and tag names only.</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="sec-note" style="margin-top:18px">
+        The full policy is in
+        <a href="https://github.com/LvSpook/bookbox/blob/main/privacy.html">privacy.html</a>.
+      </p>
+    </div>
+  </section>
+
+  <section id="files">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="idx mono">06</span>
+        <h2>Files</h2>
+        <span class="rule"></span>
+      </div>
+
+      <p class="sec-note">
+        Everything that ships lives in <code>public/</code>, so the repo layout
+        mirrors the loaded extension exactly.
+      </p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>File</th><th>Purpose</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>index.html</code></td><td>Interactive preview page with 23 demo bookmarks</td></tr>
+            <tr><td><code>popup.html</code></td><td>Toolbar popup</td></tr>
+            <tr><td><code>options.html</code></td><td>Full-page settings tab</td></tr>
+            <tr><td><code>app.js</code></td><td>UI state and wiring</td></tr>
+            <tr><td><code>organizer.js</code></td><td>Duplicates, sorting, search, link checks</td></tr>
+            <tr><td><code>search-plus.js</code></td><td>Fuzzy search, operators, match context</td></tr>
+            <tr><td><code>ai.js</code></td><td>AI provider client, embeddings, local fallbacks</td></tr>
+            <tr><td><code>background.js</code></td><td>Service worker: context menus, omnibox, scheduled checks</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="stack" style="margin-top:16px">
+        <div>
+          <p class="hint">Run the built-in self-check</p>
+          <pre><code>Settings &rarr; Diagnostics &rarr; Run self-check</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="repos">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="idx mono">07</span>
+        <h2>Repositories</h2>
+        <span class="rule"></span>
+      </div>
+
+      <div class="grid2">
+        <a class="card" href="https://github.com/LvSpook/bookbox" style="display:block;padding:0;overflow:hidden">
+          <img src="assets/card-bookbox.svg" alt="BookBox - local-first bookmark toolbox" style="display:block;width:100%">
+        </a>
+        <a class="card" href="https://github.com/LvSpook?tab=repositories" style="display:block;padding:0;overflow:hidden">
+          <img src="assets/card-more.svg" alt="More tools from LvSpook" style="display:block;width:100%">
+        </a>
+      </div>
+
+      <div class="notice" style="margin-top:16px">
+        <span class="ico">//</span>
+        <div>
+          <strong>AI-assisted, and I'll say so.</strong>
+          <p>
+            Parts of this project are written with the help of an AI coding assistant,
+            under human direction and review. It is not an official product of any AI
+            company. AI-assisted code can contain mistakes a human would not have made -
+            the self-check and manual testing reduce that but cannot remove it.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span class="mono">BOOKBOX - CHROME / EDGE / BRAVE - LOCAL-FIRST</span>
+    <nav class="mono">
+      <a href="https://github.com/LvSpook/bookbox">GitHub</a>
+      <a href="https://github.com/LvSpook/bookbox/issues">Issues</a>
+      <a href="https://github.com/LvSpook/bookbox/blob/main/privacy.html">Privacy</a>
+      <a href="https://lvspook.github.io/LvSpook/">LvSpook</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.documentElement;
+    var btn = document.getElementById("theme-toggle");
+    var prefersLight = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
+
+    function current() {
+      return root.getAttribute("data-theme") || (prefersLight ? "light" : "dark");
+    }
+
+    function apply(theme) {
+      root.setAttribute("data-theme", theme);
+      btn.textContent = theme === "light" ? "Dark" : "Light";
+
+      var banner = document.getElementById("hero-banner");
+      if (banner) banner.src = theme === "light" ? "assets/banner-light.svg" : "assets/banner-dark.svg";
+
+      try { localStorage.setItem("bookbox-docs-theme", theme); } catch (e) {}
+    }
+
+    apply(current());
+    btn.addEventListener("click", function () {
+      apply(current() === "light" ? "dark" : "light");
+    });
+  })();
+</script>
+
+</body>
+</html>

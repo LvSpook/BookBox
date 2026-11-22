@@ -1,4 +1,4 @@
-// Shared markup for the Bookbox popup and the preview page.
+// Shared markup for the BookBox popup and the preview page.
 // Both shells are thin: they call renderShell() and then load app.js.
 
 const BRAND_ICON = `
@@ -19,7 +19,7 @@ export function shellMarkup() {
       <div class="brand">
         <span class="brand-mark" aria-hidden="true">${BRAND_ICON}</span>
         <div>
-          <h1 class="brand-name">Bookbox</h1>
+          <h1 class="brand-name">BookBox</h1>
           <p class="brand-sub" id="mode-indicator">Your bookmarks, sorted</p>
         </div>
       </div>
@@ -37,7 +37,7 @@ export function shellMarkup() {
       </div>
     </header>
 
-    <nav class="tab-bar" role="tablist" aria-label="Bookbox sections">
+    <nav class="tab-bar" role="tablist" aria-label="BookBox sections">
       <button type="button" class="tab-btn is-active" role="tab" aria-selected="true" aria-controls="panel-browse" tabindex="0" data-tab="browse">Browse</button>
       <button type="button" class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-organize" tabindex="-1" data-tab="organize">Organize</button>
       <button type="button" class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-cleanup" tabindex="-1" data-tab="cleanup">
@@ -638,7 +638,7 @@ export function shellMarkup() {
             <button type="button" class="btn-inline" id="tour-btn">Show me around</button>
           </div>
           <div class="shortcut-grid">
-            <div><kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>B</kbd><span>Open Bookbox</span></div>
+            <div><kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>B</kbd><span>Open BookBox</span></div>
             <div><kbd>Alt</kbd><kbd>Shift</kbd><kbd>S</kbd><span>Save current page</span></div>
             <div><kbd>⌘K</kbd><span>Jump to anything</span></div>
             <div><kbd>/</kbd><span>Focus search</span></div>
@@ -649,14 +649,14 @@ export function shellMarkup() {
             <div><kbd>Space</kbd><span>Pin or unpin</span></div>
             <div><kbd>Esc</kbd><span>Close dialogs</span></div>
           </div>
-          <p class="field-help">Typing <code>bb</code> then a search in the address bar opens Bookbox with that query.</p>
+          <p class="field-help">Typing <code>bb</code> then a search in the address bar opens BookBox with that query.</p>
         </div>
 
         <div class="section-block">
           <div class="section-head">
             <h2>Backups</h2>
           </div>
-          <p class="field-help">Bookbox keeps a rolling history of your last actions. Restoring adds bookmarks into a new folder without deleting anything current.</p>
+          <p class="field-help">BookBox keeps a rolling history of your last actions. Restoring adds bookmarks into a new folder without deleting anything current.</p>
           <button type="button" class="btn-secondary" id="restore-backup-settings-btn">Restore last backup</button>
 
           <div class="section-head" style="margin-top: 14px;">

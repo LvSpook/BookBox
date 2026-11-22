@@ -1,4 +1,4 @@
-// Bookbox extra engine: rules, confidence, conflicts, aging, similarity, and search v2.
+// BookBox extra engine: rules, confidence, conflicts, aging, similarity, and search v2.
 // Imported by organizer.js and re-exported so the app only needs one import site.
 
 const STOPWORDS = new Set([

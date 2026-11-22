@@ -73,7 +73,7 @@ export async function requestModel({ settings, system, user, json = false, maxOu
   const headers = { 'Content-Type': 'application/json', Authorization: `Bearer ${apiKey.trim()}` };
   if (!isGroq) {
     headers['HTTP-Referer'] = 'https://bookbox.local';
-    headers['X-Title'] = 'Bookbox';
+    headers['X-Title'] = 'BookBox';
   }
   const res = await fetch(endpoint, {
     method: 'POST',
@@ -150,7 +150,7 @@ export async function requestEmbeddings({ settings, texts }) {
   const headers = { 'Content-Type': 'application/json', Authorization: `Bearer ${apiKey.trim()}` };
   if (provider !== 'groq') {
     headers['HTTP-Referer'] = 'https://bookbox.local';
-    headers['X-Title'] = 'Bookbox';
+    headers['X-Title'] = 'BookBox';
   }
   const res = await fetch(endpoint, {
     method: 'POST',

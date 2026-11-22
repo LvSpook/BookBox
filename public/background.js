@@ -1,4 +1,4 @@
-// Background service worker for Bookbox
+// Background service worker for BookBox
 // Handles dead-link checks, page content extraction, omnibox search, context-menu saving,
 // and tab capture without the popup's CORS restrictions.
 
@@ -12,12 +12,12 @@ chrome.runtime.onInstalled.addListener(async () => {
     await chrome.contextMenus.removeAll();
     chrome.contextMenus.create({
       id: MENU_SAVE,
-      title: 'Save this page to Bookbox',
+      title: 'Save this page to BookBox',
       contexts: ['page', 'link']
     });
     chrome.contextMenus.create({
       id: MENU_SAVE_TABS,
-      title: 'Save all open tabs to Bookbox',
+      title: 'Save all open tabs to BookBox',
       contexts: ['page']
     });
   } catch {
@@ -70,7 +70,7 @@ chrome.omnibox?.onInputChanged.addListener((text, suggest) => {
   suggest([
     {
       content: value ? `search:${value}` : 'search:',
-      description: value ? `Search Bookbox for “${value}”` : 'Open Bookbox'
+      description: value ? `Search BookBox for “${value}”` : 'Open BookBox'
     }
   ]);
 });
