@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy - BookBox</title>
+<meta name="description" content="What BookBox keeps in your browser, and the only cases where anything leaves it.">
+<meta property="og:title" content="BookBox privacy">
+<meta property="og:description" content="What BookBox keeps, and what it sends.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/banner-dark.svg">
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem("bookbox-docs-theme");
+      if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html">
+      <img src="assets/logo.svg" alt="" width="28" height="28">
+      <span>Book<b>Box</b></span>
+    </a>
+    <div class="nav-links mono">
+      <a href="index.html#install">Install</a>
+      <a href="index.html#features">Features</a>
+      <a href="index.html#ai">AI</a>
+      <a href="index.html#files">Files</a>
+      <a href="privacy.html" aria-current="page">Privacy</a>
+    </div>
+    <button class="theme-toggle mono" id="theme-toggle" type="button" aria-label="Toggle colour scheme" title="Toggle colour scheme">Light</button>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-body">
+    <h1>Privacy</h1>
+    <p>
+      Short version: your bookmarks stay in your browser. Nothing goes anywhere
+      unless you turn on an AI key or sync. There is no server and no account.
+    </p>
+    <div class="pill-row">
+      <span class="pill">No account</span>
+      <span class="pill dim">No telemetry</span>
+      <span class="pill dim">Local storage only</span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section>
+    <div class="wrap prose">
+      <div class="sec-head">
+        <span class="idx mono">01</span>
+        <h2>What BookBox stores</h2>
+        <span class="rule"></span>
+      </div>
+      <p>
+        Everything BookBox saves stays inside your browser: your bookmarks and
+        folders, the tags, notes and read-later marks you add, any page text you
+        choose to index, your saved searches, rules and settings, plus a rolling
+        set of local backups and a 30-day trash.
+      </p>
+      <p>There is no server and no account system.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap prose">
+      <div class="sec-head">
+        <span class="idx mono">02</span>
+        <h2>What leaves your computer</h2>
+        <span class="rule"></span>
+      </div>
+      <p>Nothing, unless you switch a feature on yourself.</p>
+
+      <div class="grid2" style="margin-top:16px">
+        <div class="card">
+          <h3><span class="bar"></span> AI sorting, summaries, Ask</h3>
+          <ul>
+            <li><span class="n">01</span><span>If you paste a key from Google Gemini, Groq or OpenRouter, the bookmarks you choose to sort or ask about are sent to that provider.</span></li>
+            <li><span class="n">02</span><span>BookBox sends only the titles, addresses, tags and page text needed for that request.</span></li>
+            <li><span class="n">03</span><span>Smart Local sorting, local summaries and local answers never touch the network.</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3><span class="bar"></span> Dead-link checks</h3>
+          <ul>
+            <li><span class="n">01</span><span>BookBox requests each saved address to see whether it still resolves.</span></li>
+            <li><span class="n">02</span><span>Those requests go to sites you already bookmarked, with no other data attached.</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3><span class="bar"></span> Cross-device sync</h3>
+          <ul>
+            <li><span class="n">01</span><span>If you turn it on, your preferences and tag names go to your browser vendor's sync service - Google's, for Chrome.</span></li>
+            <li><span class="n">02</span><span>Page text, notes, history and your API key are never synced.</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3><span class="bar"></span> What BookBox never does</h3>
+          <ul>
+            <li><span class="n">01</span><span>No analytics or telemetry.</span></li>
+            <li><span class="n">02</span><span>No sending your library to the developer or anyone else.</span></li>
+            <li><span class="n">03</span><span>No reading pages you have not chosen to save or index.</span></li>
+            <li><span class="n">04</span><span>No selling, renting or sharing data.</span></li>
+            <li><span class="n">05</span><span>No ads inside the extension.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap prose">
+      <div class="sec-head">
+        <span class="idx mono">03</span>
+        <h2>Permissions and why they are needed</h2>
+        <span class="rule"></span>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Permission</th><th>Why BookBox asks for it</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>bookmarks</code></td><td>To read, organise and clean up your bookmarks.</td></tr>
+            <tr><td><code>storage</code> / <code>unlimitedStorage</code></td><td>To keep your library, backups and page-text index locally.</td></tr>
+            <tr><td><code>history</code></td><td>To show which saved pages you actually visit.</td></tr>
+            <tr><td><code>tabs</code></td><td>To open and save pages you choose.</td></tr>
+            <tr><td><code>contextMenus</code></td><td>For the right-click "Save this page" action.</td></tr>
+            <tr><td><code>alarms</code></td><td>For an optional scheduled dead-link check.</td></tr>
+            <tr><td>Access to all sites</td><td>Only to fetch page text you ask to index and to check whether saved links still work.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap prose">
+      <div class="sec-head">
+        <span class="idx mono">04</span>
+        <h2>Your control</h2>
+        <span class="rule"></span>
+      </div>
+      <p>
+        You can export your library any time as HTML, JSON, Markdown or CSV. You can
+        clear the page-text index, empty the trash, and remove all stored data by
+        uninstalling the extension, since the data lives in your browser.
+      </p>
+
+      <div class="notice" style="margin-top:16px">
+        <span class="ico">//</span>
+        <div>
+          <strong>Contact</strong>
+          <p>
+            Questions can go through
+            <a href="https://github.com/LvSpook/bookbox/issues">the issue tracker</a>
+            or the extension's store listing.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span class="mono">BOOKBOX - CHROME / EDGE / BRAVE - LOCAL-FIRST</span>
+    <nav class="mono">
+      <a href="index.html">Docs</a>
+      <a href="https://github.com/LvSpook/bookbox">GitHub</a>
+      <a href="https://github.com/LvSpook/bookbox/issues">Issues</a>
+      <a href="https://lvspook.github.io/LvSpook/">LvSpook</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.documentElement;
+    var btn = document.getElementById("theme-toggle");
+    var prefersLight = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
+
+    function current() {
+      return root.getAttribute("data-theme") || (prefersLight ? "light" : "dark");
+    }
+
+    function apply(theme) {
+      root.setAttribute("data-theme", theme);
+      btn.textContent = theme === "light" ? "Dark" : "Light";
+      try { localStorage.setItem("bookbox-docs-theme", theme); } catch (e) {}
+    }
+
+    apply(current());
+    btn.addEventListener("click", function () {
+      apply(current() === "light" ? "dark" : "light");
+    });
+  })();
+</script>
+
+</body>
+</html>
