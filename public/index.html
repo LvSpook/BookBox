@@ -73,10 +73,7 @@
     </section>
   </div>
 
-  <script type="module">
-    import { renderShell } from './ui.js';
-    renderShell(document.getElementById('preview-frame'));
-    await import('./app.js');
-  </script>
+  <script src="preview-fallback.js"></script>
+  <script type="module" src="preview.js"></script>
 </body>
 </html>

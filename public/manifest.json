@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "BookBox — Bookmark Toolbox",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "description": "Your bookmarks, sorted. Organize by real page content with tags, rules, trash, and full-text search. Preview every change first.",
   "icons": {
     "16": "icons/icon16.png",

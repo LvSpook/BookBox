@@ -9,7 +9,7 @@
 <br>
 
 [![Manifest](https://img.shields.io/badge/manifest-v3-6ea0ff)](public/manifest.json)
-[![Version](https://img.shields.io/badge/version-2.3.0-6ea0ff)](public/manifest.json)
+[![Version](https://img.shields.io/badge/version-2.3.1-6ea0ff)](public/manifest.json)
 [![Status](https://img.shields.io/badge/status-not%20on%20the%20store-e0a860)](#-install-unpacked)
 [![Platform](https://img.shields.io/badge/platform-chrome%20%7C%20edge%20%7C%20brave-6ea0ff)](https://lvspook.github.io/BookBox/)
 [![Local-first](https://img.shields.io/badge/data-stays%20in%20your%20browser-59d99a)](https://lvspook.github.io/BookBox/privacy.html)
@@ -127,8 +127,17 @@ read from the browser itself, so the library fills in immediately.
 
 ### Note on the demo page
 
-Opening `public/index.html` in a browser runs the interactive demo with 23 sample
-bookmarks. It is a preview only — the real toolbar popup and settings page only
+`public/index.html` is the interactive demo with 23 sample bookmarks. Browsers
+block ES modules on `file://`, so opening the file directly from disk shows a
+short note instead of the demo. Serve the folder to see it:
+
+```bash
+cd public
+python -m http.server 8000
+# then open http://localhost:8000
+```
+
+The demo is a preview only — the real toolbar popup and settings page only
 work once the extension is loaded.
 
 ## 🗂 Project layout
@@ -141,6 +150,9 @@ public/
   index.html          Interactive preview page (demo bookmarks)
   popup.html          Toolbar popup
   options.html        Full-page settings tab
+  boot.js             Entry point for popup.html and options.html
+  preview.js          Entry point for index.html
+  preview-fallback.js Explains the demo when opened from file://
   app.js              UI state and wiring
   ui.js               Shared markup: tabs, panels, dialogs
   organizer.js        Core engine: duplicates, sorting, search, link checks
