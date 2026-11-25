@@ -145,7 +145,7 @@ body {
 
 /* Browser surfaces belong to the design too. */
 ::selection { background: var(--accent); color: var(--on-accent); }
-:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; border-radius: 3px; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; border-radius: var(--radius-sm); }
 
 ::-webkit-scrollbar { width: 12px; height: 12px; }
 ::-webkit-scrollbar-track { background: var(--bg-2); }
@@ -181,7 +181,7 @@ code, pre, .mono {
   top: -60px;
   z-index: 50;
   padding: 10px 16px;
-  border-radius: 4px;
+  border-radius: var(--radius);
   background: var(--accent);
   color: var(--on-accent);
   font-weight: 600;
@@ -262,7 +262,7 @@ code, pre, .mono {
 .pill {
   font-family: "JetBrains Mono", ui-monospace, monospace;
   font-size: 0.72rem; letter-spacing: 0.05em; text-transform: uppercase;
-  padding: 5px 10px; border-radius: 2px;
+  padding: 5px 10px; border-radius: var(--radius-pill);
   color: var(--accent-ink);
   background: var(--accent-soft);
   border: 1px solid var(--accent-line);
@@ -359,7 +359,7 @@ section:last-of-type { border-bottom: 0; }
 .demo-chip {
   font-family: "JetBrains Mono", ui-monospace, monospace;
   font-size: 0.72rem; letter-spacing: 0.02em;
-  padding: 5px 10px; border-radius: 3px; cursor: pointer;
+  padding: 5px 10px; border-radius: var(--radius-sm); cursor: pointer;
   color: var(--muted); background: transparent; border: 1px solid var(--border-hi);
   transition: color 0.14s ease, border-color 0.14s ease, background 0.14s ease;
 }
@@ -370,7 +370,7 @@ section:last-of-type { border-bottom: 0; }
 
 .mock {
   border: 1px solid var(--border);
-  border-radius: 6px;
+  border-radius: var(--radius);
   background: var(--panel);
   overflow: hidden;
   box-shadow: var(--shadow);
@@ -387,14 +387,14 @@ section:last-of-type { border-bottom: 0; }
 .kbd {
   font-family: "JetBrains Mono", ui-monospace, monospace;
   font-size: 0.7rem; color: var(--muted);
-  border: 1px solid var(--border-hi); border-radius: 3px;
+  border: 1px solid var(--border-hi); border-radius: var(--radius-sm);
   padding: 2px 5px; white-space: nowrap;
 }
 
 .mock-search {
   display: flex; align-items: center; gap: 8px;
   margin: 12px; padding: 9px 10px;
-  border: 1px solid var(--border-hi); border-radius: 4px;
+  border: 1px solid var(--border-hi); border-radius: var(--radius-sm);
   background: var(--bg-2); color: var(--muted); font-size: 0.78rem;
   transition: border-color 0.14s ease, background 0.14s ease;
 }
@@ -412,7 +412,7 @@ section:last-of-type { border-bottom: 0; }
 .mock-row:last-child { border-bottom: 0; }
 .mock-row .ico {
   width: 18px; height: 18px; flex: none; margin-top: 3px;
-  border-radius: 3px; background: var(--accent-soft);
+  border-radius: var(--radius-sm); background: var(--accent-soft);
   border: 1px solid var(--accent-line);
 }
 .mock-row .t { color: var(--text); font-weight: 600; }
@@ -423,7 +423,7 @@ section:last-of-type { border-bottom: 0; }
 }
 .mock-row .tag {
   display: inline-block; margin-top: 4px; font-size: 0.7rem; padding: 2px 6px;
-  border-radius: 2px; color: var(--accent-ink); background: var(--accent-soft);
+  border-radius: var(--radius-sm); color: var(--accent-ink); background: var(--accent-soft);
   border: 1px solid var(--accent-line);
   font-family: "JetBrains Mono", ui-monospace, monospace; letter-spacing: 0.03em;
 }
@@ -460,7 +460,7 @@ section:last-of-type { border-bottom: 0; }
 .demo-chips:empty { display: none; }
 .demo-chips button {
   font-family: "JetBrains Mono", ui-monospace, monospace;
-  font-size: 0.7rem; padding: 3px 8px; border-radius: 2px; cursor: pointer;
+  font-size: 0.7rem; padding: 3px 8px; border-radius: var(--radius-sm); cursor: pointer;
   color: var(--accent-ink); background: var(--accent-soft); border: 1px solid var(--accent-line);
 }
 .demo-chips button:hover { background: var(--accent); color: var(--on-accent); }
@@ -473,12 +473,12 @@ section:last-of-type { border-bottom: 0; }
 }
 .mock-row:hover { background: var(--accent-soft); }
 .mock-row.sel { background: var(--accent-soft); box-shadow: inset 2px 0 0 var(--accent); }
-.mock-row .t .hl { background: color-mix(in srgb, var(--accent) 28%, transparent); color: var(--text); border-radius: 2px; }
+.mock-row .t .hl { background: color-mix(in srgb, var(--accent) 28%, transparent); color: var(--text); border-radius: var(--radius-sm); }
 .mock-row .t.done { text-decoration: line-through; color: var(--muted); font-weight: 500; }
 .mock-row .meta-row { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; margin-top: 4px; }
 .mock-row .badge {
   font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 0.7rem; letter-spacing: 0.03em;
-  text-transform: uppercase; padding: 2px 5px; border-radius: 2px;
+  text-transform: uppercase; padding: 2px 5px; border-radius: var(--radius-sm);
   color: var(--muted); border: 1px solid var(--border-hi);
   white-space: nowrap;
 }
@@ -490,7 +490,7 @@ section:last-of-type { border-bottom: 0; }
 /* The demo also prints badges and tags outside a row (group headers). */
 .badge {
   font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 0.7rem; letter-spacing: 0.03em;
-  text-transform: uppercase; padding: 2px 5px; border-radius: 2px;
+  text-transform: uppercase; padding: 2px 5px; border-radius: var(--radius-sm);
   color: var(--muted); border: 1px solid var(--border-hi);
   white-space: nowrap;
 }
@@ -500,7 +500,7 @@ section:last-of-type { border-bottom: 0; }
 .badge.hot { color: var(--accent-ink); border-color: var(--accent-line); background: var(--accent-soft); }
 .mock-row .tag {
   display: inline-block; font-size: 0.7rem; padding: 2px 6px;
-  border-radius: 2px; color: var(--accent-ink); background: var(--accent-soft);
+  border-radius: var(--radius-sm); color: var(--accent-ink); background: var(--accent-soft);
   border: 1px solid var(--accent-line);
   font-family: "JetBrains Mono", ui-monospace, monospace; letter-spacing: 0.03em;
 }
@@ -514,9 +514,11 @@ section:last-of-type { border-bottom: 0; }
 .demo-status strong { color: var(--accent-ink); font-weight: 600; }
 
 /* footer actions */
+/* Square on purpose: the footer is a chrome strip clipped by the mock's own
+   8px curve, so rounding these too draws a second, nearly parallel arc. */
 .mock-foot button,
 .mock-foot span {
-  flex: 1; text-align: center; font-size: 0.7rem; padding: 7px 0; border-radius: 3px;
+  flex: 1; text-align: center; font-size: 0.7rem; padding: 7px 0; border-radius: 0;
   font-family: "JetBrains Mono", ui-monospace, monospace; letter-spacing: 0.045em; text-transform: uppercase;
   color: var(--muted); border: 1px solid var(--border-hi); background: transparent; cursor: pointer;
   white-space: nowrap;
@@ -561,7 +563,7 @@ section:last-of-type { border-bottom: 0; }
   display: block; margin: 7px 0 2px;
   font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 0.71rem;
   letter-spacing: 0.035em; text-transform: uppercase;
-  padding: 5px 9px; border-radius: 3px; cursor: pointer;
+  padding: 5px 9px; border-radius: var(--radius-sm); cursor: pointer;
   color: var(--accent-ink); background: var(--accent-soft); border: 1px solid var(--accent-line);
 }
 .demo-inline-btn:hover { background: var(--accent); color: var(--on-accent); }
@@ -585,7 +587,7 @@ section:last-of-type { border-bottom: 0; }
 .demo-side .demo-action {
   font-family: "JetBrains Mono", ui-monospace, monospace;
   font-size: 0.71rem; letter-spacing: 0.04em; text-transform: uppercase;
-  padding: 7px 12px; border-radius: 3px; cursor: pointer;
+  padding: 7px 12px; border-radius: var(--radius-sm); cursor: pointer;
   color: var(--muted); background: transparent; border: 1px solid var(--border-hi);
 }
 .demo-side .demo-action:hover { color: var(--accent-ink); border-color: var(--accent-line); }
@@ -597,7 +599,7 @@ section:last-of-type { border-bottom: 0; }
   position: fixed; left: 50%; bottom: 24px; transform: translate(-50%, 12px);
   z-index: 60; opacity: 0; pointer-events: none;
   display: flex; align-items: center; gap: 14px;
-  padding: 12px 16px; border-radius: 4px;
+  padding: 12px 16px; border-radius: var(--radius);
   border: 1px solid var(--accent-line); background: var(--panel-2);
   box-shadow: var(--shadow);
   font-size: 0.85rem; color: var(--text);
@@ -622,11 +624,12 @@ th {
   color: var(--muted); font-weight: 600; background: var(--panel-2);
   white-space: nowrap;
 }
-th:first-child { border-radius: 3px 0 0 3px; }
-th:last-child { border-radius: 0 3px 3px 0; }
+/* The wrapper is inset by its 6px padding, so the inner band curves less than the outer box. */
+th:first-child { border-radius: calc(var(--radius) - 6px) 0 0 calc(var(--radius) - 6px); }
+th:last-child { border-radius: 0 calc(var(--radius) - 6px) calc(var(--radius) - 6px) 0; }
 tbody tr + tr td { border-top: 1px solid var(--border); }
 td code {
-  font-size: 0.78rem; padding: 2px 6px; border-radius: 3px;
+  font-size: 0.78rem; padding: 2px 6px; border-radius: var(--radius-sm);
   background: var(--accent-soft); border: 1px solid var(--accent-line); color: var(--accent-ink);
   overflow-wrap: anywhere;
 }
