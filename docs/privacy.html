@@ -3,8 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Privacy - BookBox</title>
+<title>Privacy policy for BookBox</title>
 <meta name="description" content="What BookBox keeps in your browser, and the only cases where anything leaves it.">
+<meta name="theme-color" content="#04060b" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
 <meta property="og:title" content="BookBox privacy">
 <meta property="og:description" content="What BookBox keeps, and what it sends.">
 <meta property="og:type" content="website">
@@ -22,20 +24,24 @@
 </head>
 <body>
 
+<a class="skip" href="#main">Skip to content</a>
+
 <nav class="nav">
   <div class="wrap nav-inner">
     <a class="brand" href="index.html">
-      <img src="assets/logo.svg" alt="" width="28" height="28">
+      <img src="assets/logo.svg" alt="" width="26" height="26">
       <span>Book<b>Box</b></span>
     </a>
-    <div class="nav-links mono">
+    <div class="nav-links">
       <a href="index.html#install">Install</a>
-      <a href="index.html#features">Features</a>
+      <a href="index.html#features">Demo</a>
       <a href="index.html#ai">AI</a>
       <a href="index.html#files">Files</a>
       <a href="privacy.html" aria-current="page">Privacy</a>
     </div>
-    <button class="theme-toggle mono" id="theme-toggle" type="button" aria-label="Toggle colour scheme" title="Toggle colour scheme">Light</button>
+    <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch colour scheme">
+      <span class="theme-label">Light</span>
+    </button>
   </div>
 </nav>
 
@@ -54,11 +60,10 @@
   </div>
 </header>
 
-<main>
+<main id="main">
   <section>
     <div class="wrap prose">
       <div class="sec-head">
-        <span class="idx mono">01</span>
         <h2>What BookBox stores</h2>
         <span class="rule"></span>
       </div>
@@ -75,15 +80,14 @@
   <section>
     <div class="wrap prose">
       <div class="sec-head">
-        <span class="idx mono">02</span>
         <h2>What leaves your computer</h2>
         <span class="rule"></span>
       </div>
       <p>Nothing, unless you switch a feature on yourself.</p>
 
-      <div class="grid2" style="margin-top:16px">
+      <div class="grid2 spaced">
         <div class="card">
-          <h3><span class="bar"></span> AI sorting, summaries, Ask</h3>
+          <h3><span class="bar"></span>AI sorting, summaries, Ask</h3>
           <ul>
             <li><span class="n">01</span><span>If you paste a key from Google Gemini, Groq or OpenRouter, the bookmarks you choose to sort or ask about are sent to that provider.</span></li>
             <li><span class="n">02</span><span>BookBox sends only the titles, addresses, tags and page text needed for that request.</span></li>
@@ -91,21 +95,21 @@
           </ul>
         </div>
         <div class="card">
-          <h3><span class="bar"></span> Dead-link checks</h3>
+          <h3><span class="bar"></span>Dead-link checks</h3>
           <ul>
             <li><span class="n">01</span><span>BookBox requests each saved address to see whether it still resolves.</span></li>
             <li><span class="n">02</span><span>Those requests go to sites you already bookmarked, with no other data attached.</span></li>
           </ul>
         </div>
         <div class="card">
-          <h3><span class="bar"></span> Cross-device sync</h3>
+          <h3><span class="bar"></span>Cross-device sync</h3>
           <ul>
-            <li><span class="n">01</span><span>If you turn it on, your preferences and tag names go to your browser vendor's sync service - Google's, for Chrome.</span></li>
+            <li><span class="n">01</span><span>If you turn it on, your preferences and tag names go to your browser vendor's sync service. For Chrome, that is Google's.</span></li>
             <li><span class="n">02</span><span>Page text, notes, history and your API key are never synced.</span></li>
           </ul>
         </div>
         <div class="card">
-          <h3><span class="bar"></span> What BookBox never does</h3>
+          <h3><span class="bar"></span>What BookBox never does</h3>
           <ul>
             <li><span class="n">01</span><span>No analytics or telemetry.</span></li>
             <li><span class="n">02</span><span>No sending your library to the developer or anyone else.</span></li>
@@ -121,24 +125,24 @@
   <section>
     <div class="wrap prose">
       <div class="sec-head">
-        <span class="idx mono">03</span>
         <h2>Permissions and why they are needed</h2>
         <span class="rule"></span>
       </div>
 
       <div class="table-wrap">
         <table>
+          <caption class="sr-only">Browser permissions BookBox requests</caption>
           <thead>
-            <tr><th>Permission</th><th>Why BookBox asks for it</th></tr>
+            <tr><th scope="col">Permission</th><th scope="col">Why BookBox asks for it</th></tr>
           </thead>
           <tbody>
             <tr><td><code>bookmarks</code></td><td>To read, organise and clean up your bookmarks.</td></tr>
-            <tr><td><code>storage</code> / <code>unlimitedStorage</code></td><td>To keep your library, backups and page-text index locally.</td></tr>
+            <tr><td><code>storage</code> and <code>unlimitedStorage</code></td><td>To keep your library, backups and page-text index locally.</td></tr>
             <tr><td><code>history</code></td><td>To show which saved pages you actually visit.</td></tr>
             <tr><td><code>tabs</code></td><td>To open and save pages you choose.</td></tr>
             <tr><td><code>contextMenus</code></td><td>For the right-click "Save this page" action.</td></tr>
             <tr><td><code>alarms</code></td><td>For an optional scheduled dead-link check.</td></tr>
-            <tr><td>Access to all sites</td><td>Only to fetch page text you ask to index and to check whether saved links still work.</td></tr>
+            <tr><td>Access to all sites</td><td>Only to fetch page text you ask to index, and to check whether saved links still work.</td></tr>
           </tbody>
         </table>
       </div>
@@ -148,7 +152,6 @@
   <section>
     <div class="wrap prose">
       <div class="sec-head">
-        <span class="idx mono">04</span>
         <h2>Your control</h2>
         <span class="rule"></span>
       </div>
@@ -158,8 +161,8 @@
         uninstalling the extension, since the data lives in your browser.
       </p>
 
-      <div class="notice" style="margin-top:16px">
-        <span class="ico">//</span>
+      <div class="notice spaced">
+        <span class="ico" aria-hidden="true">//</span>
         <div>
           <strong>Contact</strong>
           <p>
@@ -176,8 +179,8 @@
 
 <footer>
   <div class="wrap foot">
-    <span class="mono">BOOKBOX - CHROME / EDGE / BRAVE - LOCAL-FIRST</span>
-    <nav class="mono">
+    <span>BookBox for Chrome, Edge and Brave. Local-first, no account.</span>
+    <nav aria-label="Footer">
       <a href="index.html">Docs</a>
       <a href="https://github.com/LvSpook/BookBox">GitHub</a>
       <a href="https://github.com/LvSpook/BookBox/issues">Issues</a>
@@ -190,6 +193,7 @@
   (function () {
     var root = document.documentElement;
     var btn = document.getElementById("theme-toggle");
+    var label = btn.querySelector(".theme-label");
     var prefersLight = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
 
     function current() {
@@ -198,7 +202,8 @@
 
     function apply(theme) {
       root.setAttribute("data-theme", theme);
-      btn.textContent = theme === "light" ? "Dark" : "Light";
+      label.textContent = theme === "light" ? "Dark" : "Light";
+      btn.setAttribute("aria-label", theme === "light" ? "Switch to dark colours" : "Switch to light colours");
       try { localStorage.setItem("bookbox-docs-theme", theme); } catch (e) {}
     }
 
