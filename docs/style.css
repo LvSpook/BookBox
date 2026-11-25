@@ -638,11 +638,16 @@ td code {
 
 pre {
   margin: 0; padding: 14px 16px; overflow-x: auto;
+  /* Grid children default to min-width:auto, so a long line would widen the
+     page rather than scrolling inside the block. */
+  min-width: 0;
   border: 1px solid var(--border); border-radius: var(--radius);
   background: var(--bg-2); font-size: 0.82rem; line-height: 1.6;
 }
 pre code { color: var(--text); }
-.stack { display: grid; gap: 18px; }
+/* minmax(0,1fr), not the default auto: an auto track sizes to max-content,
+   so a long command line inside <pre> widened the whole page on mobile. */
+.stack { display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; }
 .stack p.hint { margin: 0 0 8px; color: var(--muted); font-size: 0.92rem; }
 
 /* ---------- notice ---------- */
@@ -691,5 +696,10 @@ footer { padding: 36px 0 48px; color: var(--muted); font-size: 0.82rem; }
   .card { padding: 18px; }
   .notice { padding: 14px 16px; }
   th, td { padding: 10px; }
+  /* Filenames are the readable payload of this table, so keep the chips whole
+     and let the longer purpose column absorb the wrap instead. */
+  td code { white-space: nowrap; }
   .demo-steps { margin-left: 0; width: 100%; }
+  /* A single long command has nowhere to scroll to on a phone, so let it wrap. */
+  pre { white-space: pre-wrap; overflow-wrap: anywhere; }
 }
